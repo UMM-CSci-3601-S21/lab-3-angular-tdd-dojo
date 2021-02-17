@@ -8,8 +8,8 @@ describe('Todo list', () => {
     page.navigateTo();
   });
 
-  it('compiles and runs', () => {
-    expect(2+2).to.equal(4);
+  it('Should have the correct title', () => {
+    page.getTodoTitle().should('have.text', 'Todos');
   });
 
 });
