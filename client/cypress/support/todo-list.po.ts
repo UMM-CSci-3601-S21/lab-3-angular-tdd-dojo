@@ -4,7 +4,7 @@ export class TodoListPage {
   }
 
   getTodoTitle() {
-    return cy.get('.user-list-title');
+    return cy.get('.todo-list-title');
   }
 
 }
