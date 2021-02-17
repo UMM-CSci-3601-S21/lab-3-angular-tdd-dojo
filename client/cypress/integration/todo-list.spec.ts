@@ -12,4 +12,8 @@ describe('Todo list', () => {
     page.getTodoTitle().should('have.text', 'Todos');
   });
 
+  it('Should display a significant number of todos', () => {
+    page.getTodoCards().should('have.length.above', 10);
+  });
+
 });

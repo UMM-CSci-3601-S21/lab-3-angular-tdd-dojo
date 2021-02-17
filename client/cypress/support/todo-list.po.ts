@@ -7,4 +7,7 @@ export class TodoListPage {
     return cy.get('.todo-list-title');
   }
 
+  getTodoCards() {
+    return cy.get('.todo-cards-container .todo-card');
+  }
 }
