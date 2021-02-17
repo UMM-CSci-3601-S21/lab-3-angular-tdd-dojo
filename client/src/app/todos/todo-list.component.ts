@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from './todo';
+import { TodoService } from './todo.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -7,89 +8,18 @@ import { Todo } from './todo';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
-  public todos: Todo[] = [
-    {
-      _id: 'lsdkfjslkdfj',
-     owner: 'Nic',
-     status: true,
-     body: 'Clean kitchen',
-     category: 'House stuff'
-   },
-   {
-    _id: 'lsdkfjslkdfj',
-   owner: 'Nic',
-   status: true,
-   body: 'Clean kitchen',
-   category: 'House stuff'
- },
- {
-  _id: 'lsdkfjslkdfj',
- owner: 'Nic',
- status: true,
- body: 'Clean kitchen',
- category: 'House stuff'
-},
-{
-  _id: 'lsdkfjslkdfj',
- owner: 'Nic',
- status: true,
- body: 'Clean kitchen',
- category: 'House stuff'
-},
-{
-  _id: 'lsdkfjslkdfj',
- owner: 'Nic',
- status: true,
- body: 'Clean kitchen',
- category: 'House stuff'
-},
-{
-  _id: 'lsdkfjslkdfj',
- owner: 'Nic',
- status: true,
- body: 'Clean kitchen',
- category: 'House stuff'
-},
-{
-  _id: 'lsdkfjslkdfj',
- owner: 'Nic',
- status: true,
- body: 'Clean kitchen',
- category: 'House stuff'
-},
-{
-  _id: 'lsdkfjslkdfj',
- owner: 'Nic',
- status: true,
- body: 'Clean kitchen',
- category: 'House stuff'
-},
-{
-  _id: 'lsdkfjslkdfj',
- owner: 'Nic',
- status: true,
- body: 'Clean kitchen',
- category: 'House stuff'
-},
-{
-  _id: 'lsdkfjslkdfj',
- owner: 'Nic',
- status: true,
- body: 'Clean kitchen',
- category: 'House stuff'
-},
-{
-  _id: 'lsdkfjslkdfj',
- owner: 'Nic',
- status: true,
- body: 'Clean kitchen',
- category: 'House stuff'
-},
-];
+  public todos: Todo[];
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
+
+  getTodosFromServer() {
+    this.todoService.getTodos().subscribe(returnedTodos => {
+      this.todos = returnedTodos;
+    });
+  }
 
   ngOnInit(): void {
+    this.getTodosFromServer();
   }
 
 }
